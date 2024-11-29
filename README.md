@@ -1,3 +1,3 @@
 # Evraz_CodeMate
 
-![CodeMate](https://github.com/user-attachments/assets/51e22a85-e2d6-45aa-b536-7500c5ffd695)
+![CodeMate (1)](https://github.com/user-attachments/assets/538afd93-3de4-443c-ad16-33a1fb6db8a2)
