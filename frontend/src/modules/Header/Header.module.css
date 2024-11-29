@@ -6,9 +6,11 @@
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .headerContainer {
+  max-width: 1440px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -18,21 +20,31 @@
 
 .userInfo {
   display: flex;
+  align-items: center;
   gap: 24px;
 }
 
 .userInfoWrapepr {
   height: 100%;
   display: flex;
+  gap: 4px;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-end;
 }
 
-.userName {}
+.userName {
+  margin-bottom: auto;
+  font-size: var(--font-size-h-xs);
+}
 
 .userPosition {
+  font-size: var(--font-size-p-m);
   color: var(--color-text-grey);
+}
+
+.userAvatar {
+  height: 52px;
+  aspect-ratio: 1 / 1;
 }
 
 

@@ -1,6 +1,3 @@
-import { ReactNode } from "react";
+import { type LayoutProps } from "@layouts/Layout/types";
 
-export interface PageLayoutProps {
-  children: ReactNode;
-  header?: boolean;
-}
+export interface PageLayoutProps extends LayoutProps {}

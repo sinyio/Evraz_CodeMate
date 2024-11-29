@@ -1,22 +1,24 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import s from "./Form.module.css";
-import { ChooseButton } from "../../ChooseButton/ChooseButton";
-import cloudIcon from "@assets/icons/cloud.svg";
-import { ConfirmFiles } from "../../ConfirmFiles/ui/ConfirmFiles";
+import s from "./UploadFileForm.module.css";
+import { ChooseButton } from "@modules/ChooseButton";
+import { ConfirmFiles } from "@modules/ConfirmFiles";
+import { Cloud } from "@components/Cloud/Cloud";
+import DropArea from "@/shared/components/DropArea/DropArea";
 
-interface IForm {
+interface IUploadFileForm {
   files: FileList | null;
 }
 
-interface FormProps {
+interface UploadFileFormProps {
   onFileUpload: (file: File) => void;
 }
 
-export const Form: FC<FormProps> = ({ onFileUpload }) => {
+export const UploadFileForm: FC<UploadFileFormProps> = ({ onFileUpload }) => {
   const [isFilesUploaded, setIsFilesUploaded] = useState<boolean>(false);
 
-  const { handleSubmit, register, watch, setValue } = useForm<IForm>();
+  const { handleSubmit, register, watch, setValue } =
+    useForm<IUploadFileForm>();
 
   const onSubmit = (data) => onFileUpload(data.files[0]);
 
@@ -49,17 +51,21 @@ export const Form: FC<FormProps> = ({ onFileUpload }) => {
     fileInputRef.current?.click();
   };
 
+  if (isFilesUploaded) {
+    return (
+      <ConfirmFiles
+        files={files}
+        onSubmit={onSubmit}
+        onCancel={() => setIsFilesUploaded(false)}
+      />
+    );
+  }
+
   return (
-    <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-      {isFilesUploaded ? (
-        <ConfirmFiles
-          files={files}
-          onSubmit={onSubmit}
-          onCancel={() => setIsFilesUploaded(false)}
-        />
-      ) : (
+    <DropArea>
+      <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <>
-          <img src={cloudIcon} alt="Cloud" />
+          <Cloud />
           <p className={s.text}>
             Перетащите архив с проектом или файл .py сюда
           </p>
@@ -67,7 +73,7 @@ export const Form: FC<FormProps> = ({ onFileUpload }) => {
             {...register("files")}
             className={s.input}
             type="file"
-            accept=".csv"
+            accept=".zip, .py"
             multiple
           />
           <ChooseButton
@@ -75,7 +81,7 @@ export const Form: FC<FormProps> = ({ onFileUpload }) => {
             onClick={handleButtonClick}
           />
         </>
-      )}
-    </form>
+      </form>
+    </DropArea>
   );
 };

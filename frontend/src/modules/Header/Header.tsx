@@ -3,6 +3,7 @@ import s from "./Header.module.css";
 import { Logo } from "@components/Logo";
 import { showFormStore } from "@/store/showForm";
 import { useScreenSize } from "@/shared/hooks/useScreenSize";
+import avatar from "@assets/avatar.png";
 
 export const Header: FC = () => {
   const { isLaptop, isDesktop } = useScreenSize();
@@ -16,8 +17,8 @@ export const Header: FC = () => {
             <p className={s.userName}>Макс</p>
             <p className={s.userPosition}>Software Developer</p>
           </div>
-          <div>
-            <img src="" alt="Avatar" />
+          <div className={s.userAvatar}>
+            <img src={avatar} alt="Avatar" />
           </div>
         </div>
       </div>

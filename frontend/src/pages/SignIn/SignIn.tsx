@@ -1,15 +1,15 @@
-import { PageLayout } from "@app/layouts/PageLayout";
 import { FC } from "react";
+import { useUploadFile } from "@modules/UploadFileForm/api/useUploadFile";
+import { AuthForm } from "@modules/AuthForm/ui/AuthForm";
+import { PageLayoutWithoutHeader } from "@app/layouts/PageLayoutWithoutHeader";
 import s from "./SignIn.module.css";
-import { useUploadFile } from "@/modules/Form/api/useUploadFile";
-import { AuthForm } from "@/modules/AuthForm/ui/AuthForm";
 import bg from "@assets/bg.svg";
 
 export const SignIn: FC = () => {
   const { uploadFile, isError } = useUploadFile();
 
   return (
-    <PageLayout header={false}>
+    <PageLayoutWithoutHeader>
       <div className={s.signInPage}>
         <div className={s.signInLeft}>
           <img src={bg} />
@@ -25,6 +25,6 @@ export const SignIn: FC = () => {
           <span className={s.forgetPassword}>Забыли пароль?</span>
         </div>
       </div>
-    </PageLayout>
+    </PageLayoutWithoutHeader>
   );
 };

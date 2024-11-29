@@ -13,7 +13,7 @@ export const ChooseButton: FC<IChooseButton> = ({
     <Button
       type="button"
       text="Выберите файлы"
-      variant="primary-blue"
+      variant="orange"
       size="XL"
       {...props}
       className={className}

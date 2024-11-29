@@ -1,4 +1,5 @@
 .form {
+  border-radius: 24px;
   height: 100%;
   width: 100%;
   padding: 64px;
@@ -7,10 +8,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease ;
+
+  &:hover {
+    background-color: #cecece;
+  }
 
   &:hover>button {
-    background-color: var(--color-bg-button-blue-hover);
+    background-color: var(--color-bg-button-orange-hover);
     outline: 1px solid var(--color-outline-button-hover);
+  }
+
+  &:active>button {
+    background-color: var(--color-bg-button-orange-active);
   }
 }
 
