@@ -1,0 +1,6 @@
+:root {
+  --color-button-outline: rgba(33, 33, 33, 0.2);
+  --color-outline-button-hover: rgba(33, 33, 33, 0.1);
+  --color-bg-button-orange-hover: #d86c1e;
+  --color-bg-button-grey-hover: rgb(112, 112, 112);
+}
