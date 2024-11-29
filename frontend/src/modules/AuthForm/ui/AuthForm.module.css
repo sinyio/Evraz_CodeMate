@@ -8,10 +8,14 @@
   border-radius: 24px;
   font-size: var(--font-size-h-s);
   padding: 24px;
-  outline: 1px solid transparent;
+  outline: 1px solid var(--color-button-outline);
   transition: outline 0.3s ease;
 
   &:focus {
     outline: 1px solid #000;
+  }
+
+  &::placeholder {
+    color: var(--color-text-grey);
   }
 }

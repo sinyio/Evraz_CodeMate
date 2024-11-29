@@ -11,16 +11,18 @@ export const SignIn: FC = () => {
   return (
     <PageLayout header={false}>
       <div className={s.signInPage}>
-        <div className={s.bgImage}>
+        <div className={s.signInLeft}>
           <img src={bg} />
         </div>
-        <div>
+        <div className={s.signInRight}>
           <h1 className={s.title}>
-            Добро пожаловать в <span className={s.orange}>CodeMate</span>
+            Добро пожаловать <br /> в{" "}
+            <span className={s.orangeText}>CodeMate</span>
           </h1>
           <div className={s.formWrapper}>
             <AuthForm />
           </div>
+          <span className={s.forgetPassword}>Забыли пароль?</span>
         </div>
       </div>
     </PageLayout>

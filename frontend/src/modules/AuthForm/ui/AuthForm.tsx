@@ -16,14 +16,21 @@ export const AuthForm: FC = () => {
   };
 
   return (
-    <form className={s.form} onSubmit={handleSubmit(submit)}>
-      <input placeholder="Логин" className={s.input} {...register("login")} />
-      <input
-        placeholder="Пароль"
-        className={s.input}
-        {...register("password")}
-      />
-      <Button text="Войти" style={{ textAlign: "left" }} />
-    </form>
+    <>
+      <form
+        className={s.form}
+        onSubmit={handleSubmit(submit)}
+        autoComplete="off"
+      >
+        <input placeholder="Логин" className={s.input} {...register("login")} />
+        <input
+          type="password"
+          placeholder="Пароль"
+          className={s.input}
+          {...register("password")}
+        />
+        <Button text="Войти" style={{ textAlign: "left" }} />
+      </form>
+    </>
   );
 };

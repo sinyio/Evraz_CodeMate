@@ -1,7 +1,64 @@
 .signInPage {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
 }
 
-.bgImage {
+.title {
+  font-weight: var(--font-weight-400);
+  margin-block: 40px 30px;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  color: var(--color-text-black);
+  letter-spacing: -2px;
+}
+
+.orangeText {
+  color: var(--color-primary-orange);
+}
+
+.signInLeft {
   height: 100vh;
+}
+
+.signInRight {
+  width: 45.5%;
+
+}
+
+.forgetPassword {
+  margin-left: 5px;
+  font-size: var(--font-size-h-s);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-top: 48px;
+  display: inline-block;
+
+  &:hover {
+    color: var(--color-text-grey);
+  }
+}
+
+@media (max-width: 1440px) {
+  .signInPage {
+    justify-content: center;
+    height: 100%;
+  }
+
+  .signInRight {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .signInLeft {
+    display: none;
+  }
+
+  .formWrapper {
+    max-width: 500px;
+    width: 100%;
+  }
 }
