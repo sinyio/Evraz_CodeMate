@@ -1,0 +1,13 @@
+:root {
+  --color-primary-blue: #4682B4;
+  --color-primary-orange: #EF7622;
+  --color-text-black: #212121;
+  --color-text-grey: #949494;
+  --color-text-grey-dark: #575757;
+  --color-text-white: #FFFFFF;
+  --color-background: #EDEDED;
+  --color-header-background: #FFFFFF;
+  --color-form-background: rgba(33, 33, 33, 0.1);
+  --color-form-outline: rgba(33, 33, 33, 0.4);
+  --color-outline-form-hover: rgba(33, 33, 33, 0.1);
+}

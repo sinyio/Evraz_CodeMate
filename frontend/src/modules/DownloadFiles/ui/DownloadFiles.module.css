@@ -1,0 +1,36 @@
+.downloadFiles {
+  padding: 64px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fileIcon {
+  width: 100px;
+}
+
+.fileList {
+  display: flex;
+  gap: 50px;
+  margin-bottom: auto;
+}
+
+.fileItem {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fileName {
+  text-align: center;
+  width: 100%;
+  margin-top: 14px;
+  color: var(--color-text-grey);
+  font-size: var(--font-size-h-s);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.5px;
+}
