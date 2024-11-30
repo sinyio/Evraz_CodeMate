@@ -3,7 +3,7 @@ import s from "./ConfirmFiles.module.css";
 import { ConfirmButton } from "@modules/ConfirmButton";
 import { CancelButton } from "@modules/CancelButton";
 import { IConfirmFiles } from "../model/types";
-import fileIcon from "@assets/icons/file.svg";
+import { Zip } from "@/shared/ui/Zip";
 
 export const ConfirmFiles: FC<IConfirmFiles> = ({
   files,
@@ -17,7 +17,7 @@ export const ConfirmFiles: FC<IConfirmFiles> = ({
       <ul className={s.fileList}>
         {fileArray.map((file, index) => (
           <li className={s.fileItem} key={index}>
-            <img className={s.fileIcon} src={fileIcon} alt="Icon" />
+            <Zip />
             <span className={s.fileName}>{file.name}</span>
           </li>
         ))}

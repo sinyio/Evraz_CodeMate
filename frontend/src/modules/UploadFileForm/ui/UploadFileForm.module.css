@@ -2,26 +2,31 @@
   border-radius: 24px;
   height: 100%;
   width: 100%;
+  overflow: hidden;
+}
+
+.formWrapper {
+  height: 100%;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #d1d1d1;
+  } 
+}
+
+.formWrapper:hover button {
+  background-color: var(--color-bg-button-orange-hover);
+  outline: 1px solid var(--color-outline-button-hover);
+}
+
+.formInner {
   padding: 64px;
+  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease ;
-
-  &:hover {
-    background-color: #cecece;
-  }
-
-  &:hover>button {
-    background-color: var(--color-bg-button-orange-hover);
-    outline: 1px solid var(--color-outline-button-hover);
-  }
-
-  &:active>button {
-    background-color: var(--color-bg-button-orange-active);
-  }
 }
 
 .input {

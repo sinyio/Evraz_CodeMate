@@ -13,7 +13,7 @@ export const CancelButton: FC<IChooseButton> = ({
     <Button
       type="button"
       text="Отменить"
-      variant="primary-gold"
+      variant="grey"
       size="XL"
       {...props}
       className={className}

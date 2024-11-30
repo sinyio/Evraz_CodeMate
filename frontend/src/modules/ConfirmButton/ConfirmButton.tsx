@@ -13,7 +13,7 @@ export const ConfirmButton: FC<IConfirmButton> = ({
     <Button
       type="button"
       text="Подтвердить"
-      variant="primary-blue"
+      variant="orange"
       size="XL"
       {...props}
       className={className}

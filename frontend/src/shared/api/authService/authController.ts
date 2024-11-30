@@ -7,6 +7,7 @@ const authController = axios.create({
 });
 
 export const login = async (data: ILoginUser) => {
-  const token = await authController.post("/auth/auth/login", data);
-  return token;
+  const response = await authController.post("/auth/auth/login", data);
+  console.log(response.data.access);
+  return response.data.access;
 };

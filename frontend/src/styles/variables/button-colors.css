@@ -3,5 +3,6 @@
   --color-outline-button-hover: rgba(33, 33, 33, 0.1);
   --color-bg-button-orange-hover: #d86c1e;
   --color-bg-button-orange-active: #c9641c;
-  --color-bg-button-grey-hover: rgb(112, 112, 112);
+  --color-bg-button-grey: #949494;
+  --color-bg-button-grey-hover: rgb(136, 136, 136);
 }

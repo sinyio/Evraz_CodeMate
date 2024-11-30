@@ -9,6 +9,10 @@
   justify-content: center;
 }
 
+.logoWrapper {
+  cursor: pointer;
+}
+
 .headerContainer {
   max-width: 1440px;
   width: 100%;
@@ -47,9 +51,19 @@
   aspect-ratio: 1 / 1;
 }
 
+@media (max-width: 900px) {
+  .headerContainer {
+    justify-content: center;
+  }
 
-@media (max-width: 1440px) {
+  .userInfo {
+    display: none;
+  }
+}
+
+
+/* @media (max-width: 1440px) {
   .header {
     height: 60px;
   }
-}
+} */

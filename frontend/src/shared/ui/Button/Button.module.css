@@ -9,6 +9,7 @@
   font-weight: 300;
   outline: 1px solid var(--color-button-outline);
   letter-spacing: -1px;
+  width: 100%;
 
   &:disabled {
     cursor: not-allowed;
@@ -31,7 +32,7 @@
 }
 
 .grey {
-  background-color: var(--color-primary-blue);
+  background-color: var(--color-bg-button-grey);
 
   color: var(--color-text-white);
 
@@ -42,15 +43,16 @@
 }
 
 .button-m {
-  min-width: 170px;
+  max-width: 170px;
+  width: 100%;
 }
 
 .button-l {
-  min-width: 240px;
+  max-width: 240px;
 }
 
 .button-xl {
-  min-width: 350px;
+  max-width: 350px;
 }
 
 .button-full {
