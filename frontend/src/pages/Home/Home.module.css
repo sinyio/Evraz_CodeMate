@@ -1,0 +1,42 @@
+.homePage {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.title {
+  font-weight: var(--font-weight-400);
+  margin-block: 40px 30px;
+  font-size: var(--font-size-h-xxl);
+  color: var(--color-text-black);
+  letter-spacing: -2px;
+}
+
+.orangeText {
+  color: var(--color-primary-orange);
+}
+
+.formWrapper {
+  background-color: var(--color-form-background);
+  border-radius: 24px;
+  outline: 1px solid var(--color-form-outline);
+  height: 456px;
+  width: 100%;
+}
+
+@media (max-width: 1440px) {
+  .title {
+    margin-block: 30px 20px;
+    font-size: var(--font-size-h-l);
+  }
+
+  .secondaryTitle {
+    font-size: var(--font-size-h-s);
+    color: var(--color-text-grey);
+  }
+
+  .formWrapper {
+    width: 720px;
+  }
+}

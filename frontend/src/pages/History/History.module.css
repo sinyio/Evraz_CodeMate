@@ -1,0 +1,26 @@
+.historyPage {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.reviewListWrapper {
+  width: 100%;
+  /* outline fix */
+  padding: 1px; 
+  margin: -1px;
+  max-height: 500px;
+  padding-right: 8px;
+  overflow-y: auto;
+  scrollbar-gutter: stable
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #bdbdbd;
+  border-radius: 10px;
+}

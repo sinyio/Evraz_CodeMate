@@ -1,0 +1,58 @@
+@import '@styles/variables/main.css';
+@import '@styles/variables/button-colors.css';
+
+.button {
+  border-radius: 24px;
+  padding: 24px;
+  font-size: var(--font-size-h-s);
+  transition: 0.3s ease color, 0.3s ease background-color, 0.3s ease outline;
+  font-weight: 300;
+  outline: 1px solid var(--color-button-outline);
+  letter-spacing: -1px;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.orange {
+  background-color: var(--color-primary-orange);
+
+  color: var(--color-text-white);
+
+  &:hover {
+    background-color: var(--color-bg-button-orange-hover);
+    outline: 1px solid var(--color-outline-button-hover);
+  }
+
+  &:active {
+    background-color: var(--color-bg-button-orange-active);
+  }
+}
+
+.grey {
+  background-color: var(--color-primary-blue);
+
+  color: var(--color-text-white);
+
+  &:hover {
+    background-color: var(--color-bg-button-grey-hover);
+    outline: 1px solid var(--color-outline-button-hover);
+  }
+}
+
+.button-m {
+  min-width: 170px;
+}
+
+.button-l {
+  min-width: 240px;
+}
+
+.button-xl {
+  min-width: 350px;
+}
+
+.button-full {
+  width: 100%;
+}
