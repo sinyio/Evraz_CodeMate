@@ -3,11 +3,11 @@ import { login } from "@api/authService/authController";
 import { ILoginUser } from "@api/authService/types";
 
 export const useLoginUser = () => {
-  const { mutate } = useMutation({
-    mutationFn: ({ data }: { data: ILoginUser }) => login(data),
+  const { mutateAsync, isError, isPending } = useMutation({
+    mutationFn: async ({ data }: { data: ILoginUser }) => login(data),
   });
 
-  const loginUser = (data: ILoginUser) => mutate({ data });
+  const loginUser = (data: ILoginUser) => mutateAsync({ data });
 
-  return { loginUser };
+  return { loginUser, isError, isPending };
 };

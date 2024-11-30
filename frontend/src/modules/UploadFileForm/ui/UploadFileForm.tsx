@@ -20,28 +20,31 @@ export const UploadFileForm: FC<UploadFileFormProps> = ({ onFileUpload }) => {
   const { handleSubmit, register, watch, setValue } =
     useForm<IUploadFileForm>();
 
-  const onSubmit = (data) => onFileUpload(data.files[0]);
+  const onSubmit = (data) => {
+    onFileUpload(data.files[0]);
+  };
 
   const files = watch("files");
 
   useEffect(() => {
     if (!files) return;
-    if (files.length > 3) {
-      alert("Вы можете загрузить не более 3 файлов");
-      setValue("files", null);
-    } else {
-      let allFilesValid: boolean = true;
-      for (const file of files) {
-        if (file.type !== "text/csv") {
-          alert("Вы можете загрузить только .scv файлы");
-          setValue("files", null);
-          allFilesValid = false;
-          break;
-        }
+
+    let allFilesValid: boolean = true;
+
+    for (const file of files) {
+      console.log(file.type);
+      if (
+        file.type !== "application/zip" &&
+        file.type !== "application/x-zip-compressed"
+      ) {
+        alert("Вы можете загрузить только .zip архив");
+        setValue("files", null);
+        allFilesValid = false;
+        break;
       }
-      if (allFilesValid) {
-        setIsFilesUploaded(true);
-      }
+    }
+    if (allFilesValid) {
+      setIsFilesUploaded(true);
     }
   }, [files, setValue]);
 
@@ -51,37 +54,39 @@ export const UploadFileForm: FC<UploadFileFormProps> = ({ onFileUpload }) => {
     fileInputRef.current?.click();
   };
 
-  if (isFilesUploaded) {
-    return (
-      <ConfirmFiles
-        files={files}
-        onSubmit={onSubmit}
-        onCancel={() => setIsFilesUploaded(false)}
-      />
-    );
-  }
-
   return (
-    <DropArea>
-      <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+    <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+      {isFilesUploaded ? (
+        <ConfirmFiles
+          files={files}
+          onSubmit={onSubmit}
+          onCancel={() => setIsFilesUploaded(false)}
+        />
+      ) : (
         <>
-          <Cloud />
-          <p className={s.text}>
-            Перетащите архив с проектом или файл .py сюда
-          </p>
-          <input
-            {...register("files")}
-            className={s.input}
-            type="file"
-            accept=".zip, .py"
-            multiple
-          />
-          <ChooseButton
-            className={s.chooseButton}
-            onClick={handleButtonClick}
-          />
+          <div className={s.formWrapper}>
+            <DropArea>
+              <div className={s.formInner}>
+                <Cloud />
+                <p className={s.text}>
+                  Перетащите архив <br /> с проектом сюда, <br /> чтобы его
+                  проанализировать
+                </p>
+                <input
+                  {...register("files")}
+                  className={s.input}
+                  type="file"
+                  accept=".zip"
+                />
+                <ChooseButton
+                  className={s.chooseButton}
+                  onClick={handleButtonClick}
+                />
+              </div>
+            </DropArea>
+          </div>
         </>
-      </form>
-    </DropArea>
+      )}
+    </form>
   );
 };

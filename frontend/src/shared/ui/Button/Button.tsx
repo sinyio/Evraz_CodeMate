@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, FC } from "react";
 import s from "./Button.module.css";
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: "M" | "L" | "XL";
+  size?: "M" | "L" | "XL" | "full";
   variant?: "orange" | "grey";
   fullWidth?: boolean;
   text?: string;

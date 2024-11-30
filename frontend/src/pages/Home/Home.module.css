@@ -35,8 +35,4 @@
     font-size: var(--font-size-h-s);
     color: var(--color-text-grey);
   }
-
-  .formWrapper {
-    width: 720px;
-  }
 }

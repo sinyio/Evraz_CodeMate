@@ -1,4 +1,5 @@
 .confirmFiles {
+  padding: 64px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -7,6 +8,7 @@
 
 .buttonsWrapper {
   display: flex;
+  width: 100%;
   gap: 64px;
 }
 
@@ -15,13 +17,11 @@
 }
 
 .fileList {
-  display: flex;
-  gap: 50px;
   margin-bottom: auto;
 }
 
 .fileItem {
-  width: 150px;
+  width: 200px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -30,7 +30,7 @@
 .fileName {
   text-align: center;
   width: 100%;
-  margin-top: 14px;
+  margin-top: 10px;
   color: var(--color-text-grey);
   font-size: var(--font-size-h-s);
   white-space: nowrap;

@@ -2,27 +2,20 @@ import { Button } from "@/shared/ui/Button";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import s from "./AuthForm.module.css";
-import { useLoginUser } from "../api/useLoginUser";
 
 interface AuthForm {
   username: string;
   password: string;
 }
 
-export const AuthForm: FC = () => {
+export const AuthForm: FC = ({ onSubmit }) => {
   const { handleSubmit, register } = useForm<AuthForm>();
-
-  const { loginUser } = useLoginUser();
-
-  const submit = (data: AuthForm) => {
-    loginUser(data);
-  };
 
   return (
     <>
       <form
         className={s.form}
-        onSubmit={handleSubmit(submit)}
+        onSubmit={handleSubmit(onSubmit)}
         autoComplete="off"
       >
         <input
@@ -36,7 +29,7 @@ export const AuthForm: FC = () => {
           className={s.input}
           {...register("password")}
         />
-        <Button text="Войти" style={{ textAlign: "left" }} />
+        <Button text="Войти" size="full" style={{ textAlign: "left" }} />
       </form>
     </>
   );

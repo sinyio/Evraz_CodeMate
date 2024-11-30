@@ -4,14 +4,24 @@ import { Logo } from "@shared/ui/Logo";
 import { showFormStore } from "@store/showForm";
 import { useScreenSize } from "@shared/hooks/useScreenSize";
 import avatar from "@assets/avatar.png";
+import { useNavigate } from "react-router-dom";
 
 export const Header: FC = () => {
   const { isLaptop, isDesktop } = useScreenSize();
+  const router = useNavigate();
 
   return (
     <div className={s.header} onClick={() => showFormStore.showForm()}>
       <div className={s.headerContainer}>
-        <Logo style={{ width: !isDesktop ? "180px" : "220px" }} />
+        <div
+          className={s.logoWrapper}
+          onClick={() => {
+            router("/");
+            showFormStore.showForm();
+          }}
+        >
+          <Logo />
+        </div>
         <div className={s.userInfo}>
           <div className={s.userInfoWrapepr}>
             <p className={s.userName}>Макс</p>

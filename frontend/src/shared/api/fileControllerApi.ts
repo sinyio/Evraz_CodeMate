@@ -5,8 +5,8 @@ const fileControllerApi = axios.create({
   baseURL: apiKey,
 });
 
-export const uploadFile = (file: File) => {
+export const uploadFile = (file: File, headers) => {
   const formData = new FormData();
   formData.append("file", file);
-  return fileControllerApi.post("/upload/", formData);
+  return fileControllerApi.post("/file/upload", formData, headers);
 };

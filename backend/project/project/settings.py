@@ -49,7 +49,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://localhost:5173",
+    "http://localhost:5173",
 ]
 
 ROOT_URLCONF = "project.urls"
