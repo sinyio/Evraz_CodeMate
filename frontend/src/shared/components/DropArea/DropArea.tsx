@@ -1,10 +1,10 @@
 import { FC, PropsWithChildren, useState } from "react";
 import s from "./DropArea.module.css";
 
-const DropArea: FC<PropsWithChildren> = ({ children }) => {
+export const DropArea: FC<PropsWithChildren> = ({ children }) => {
   const [isDragging, setIsDragging] = useState(false);
 
-  const handleDragOver = (event) => {
+  const handleDragOver = () => {
     setIsDragging(true);
   };
 
@@ -12,7 +12,7 @@ const DropArea: FC<PropsWithChildren> = ({ children }) => {
     setIsDragging(false);
   };
 
-  const handleDrop = (event) => {
+  const handleDrop = () => {
     setIsDragging(false);
   };
 
@@ -27,5 +27,3 @@ const DropArea: FC<PropsWithChildren> = ({ children }) => {
     </div>
   );
 };
-
-export default DropArea;

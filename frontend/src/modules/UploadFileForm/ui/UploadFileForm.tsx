@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import s from "./UploadFileForm.module.css";
 import { ChooseButton } from "@modules/ChooseButton";
 import { ConfirmFiles } from "@modules/ConfirmFiles";
-import { Cloud } from "@components/Cloud/Cloud";
-import DropArea from "@/shared/components/DropArea/DropArea";
+import { Cloud } from "@ui/Cloud";
+import { DropArea } from "@components/DropArea";
 
 interface IUploadFileForm {
   files: FileList | null;

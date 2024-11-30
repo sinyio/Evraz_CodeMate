@@ -1,8 +1,8 @@
 import { FC } from "react";
 import s from "./Header.module.css";
-import { Logo } from "@components/Logo";
-import { showFormStore } from "@/store/showForm";
-import { useScreenSize } from "@/shared/hooks/useScreenSize";
+import { Logo } from "@shared/ui/Logo";
+import { showFormStore } from "@store/showForm";
+import { useScreenSize } from "@shared/hooks/useScreenSize";
 import avatar from "@assets/avatar.png";
 
 export const Header: FC = () => {
