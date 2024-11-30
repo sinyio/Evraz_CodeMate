@@ -14,11 +14,11 @@ RUN apt update -y && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
-COPY requirements.txt /app/
+COPY backend/requirements.txt /app/
 
 RUN pip install -r requirements.txt
 
 COPY . /app/
-COPY entrypoint.sh /entrypoint.sh
+COPY backend/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh

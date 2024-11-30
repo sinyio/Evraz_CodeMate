@@ -1,4 +1,5 @@
 import os
+import time
 from datetime import datetime
 
 import pytz
@@ -32,17 +33,22 @@ auth = BearerAuth()
 @router.post("/upload", auth=auth)
 def upload_file(request, file: NinjaUploadedFile = File(...)):
     # Сохраняем файл в базу данных и на сервер
-    instance = UploadedFile.objects.create(file=file)
+    UploadedFile.objects.create(file=file)
     file_path_uploads = os.path.join(settings.MEDIA_ROOT, f"uploads/{file.name}")
     file_path_resulte = os.path.join(settings.MEDIA_ROOT, f"results/{file.name}")
     current_time = get_current_time_formatted()
+    start_time = time.time()
+
     analyze_and_generate_report(
         uploaded_file_path=file_path_uploads,
         project_name=file.name,
         last_modified=current_time,
         output_pdf_path=file_path_resulte,
     )
-    instance.delete(instance.id)
+    end_time = time.time()
+
+    print(end_time - start_time)
+    # instance.delete(instance.id)
     return FileResponse(
         open(file_path_resulte, "rb"),
         as_attachment=True,

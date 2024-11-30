@@ -1,15 +1,13 @@
-version: '3.9'
-
 services:
   main-app:
     build:
       context: ..
-      dockerfile: Dockerfile
+      dockerfile: backend/Dockerfile
     container_name: hacaton-app
     ports:
       - '8000:8000'
     command: 'sh /entrypoint.sh'
     env_file:
-      - ../.env
+      - ../backend/.env
     volumes:
       - ..:/app/
