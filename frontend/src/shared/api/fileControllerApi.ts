@@ -1,7 +1,8 @@
 import axios from "axios";
+import { apiKey } from "./config";
 
 const fileControllerApi = axios.create({
-  baseURL: "/api",
+  baseURL: apiKey,
 });
 
 export const uploadFile = (file: File) => {
