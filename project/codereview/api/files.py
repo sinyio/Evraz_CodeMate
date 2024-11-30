@@ -1,14 +1,28 @@
 import os
-from time import sleep
+from datetime import datetime
 
+import pytz
+from django.conf import settings
 from django.http import FileResponse
 from ninja import File, Router
 from ninja.files import UploadedFile as NinjaUploadedFile
 
 from codereview.models import UploadedFile
+from codereview.utilitis import analyze_and_generate_report
 
-# from codereview.utilitis import
 from .auth import BearerAuth
+
+
+def get_current_time_formatted():
+    # Указываем временную зону UTC+3
+    timezone = pytz.timezone("Europe/Moscow")  # UTC+3 обычно соответствует Москве
+    now = datetime.now(timezone)
+    # Форматируем дату и время
+    formatted_time = now.strftime("%d.%m.%Y %H:%M:%S UTC%z")
+    # Преобразуем смещение UTC+0300 в формат UTC+3
+    formatted_time = formatted_time.replace("UTC+0300", "UTC+3")
+    return formatted_time
+
 
 router = Router(tags=["file"])
 auth = BearerAuth()
@@ -19,25 +33,20 @@ auth = BearerAuth()
 def upload_file(request, file: NinjaUploadedFile = File(...)):
     # Сохраняем файл в базу данных и на сервер
     instance = UploadedFile.objects.create(file=file)
-    sleep(100)
-    # return FileResponse(
-    #     open(file_path, "rb"),
-    #     as_attachment=True,
-    #     filename=os.path.basename(file_path),
-    # )
-    return {"message": "File uploaded successfully", "file_id": instance.id}
+    file_path_uploads = os.path.join(settings.MEDIA_ROOT, f"uploads/{file.name}")
+    file_path_resulte = os.path.join(settings.MEDIA_ROOT, f"results/{file.name}")
+    current_time = get_current_time_formatted()
+    analyze_and_generate_report(
+        uploaded_file_path=file_path_uploads,
+        project_name=file.name,
+        last_modified=current_time,
+        output_pdf_path=file_path_resulte,
+    )
+    instance.delete(instance.id)
+    return FileResponse(
+        open(file_path_resulte, "rb"),
+        as_attachment=True,
+        filename=os.path.basename(file_path_resulte),
+    )
 
-
-# Эндпоинт для скачивания файла по ID
-@router.get("/download/{file_id}", auth=auth)
-def download_file(request, file_id: int):
-    try:
-        file_instance = UploadedFile.objects.get(id=file_id)
-        file_path = file_instance.file.path
-        return FileResponse(
-            open(file_path, "rb"),
-            as_attachment=True,
-            filename=os.path.basename(file_path),
-        )
-    except UploadedFile.DoesNotExist:
-        return {"error": "File not found"}
+    # return {"message": "File uploaded successfully", "file_id": instance.id}
