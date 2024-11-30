@@ -9,6 +9,5 @@
 ## back-end
 
 ```shell
-python project\manage.py migrate
-docker-compose -f docker-compose\app.yaml --env-file .env up --build -d
+docker-compose -f docker-compose\backend.yaml -f docker-compose\frondend.yaml --env-file .env up --build -d
 ```
