@@ -29,5 +29,9 @@ CodeMate — это инструмент для анализа отдельны�
    доступ к проекту будет по ссылке [http://localhost:8000](http://localhost:8000)
 
 3. **Пользователь для проверки**
-   User: user
-   Password: pass
+   User: rer
+   Password: 123
+
+## Документация
+
+Документацию можно посмотреть по ссылке: https://www.figma.com/design/HmYYASgEL4XWwCc6krjSuv/CODEMATE?node-id=2154-2&node-type=canvas&t=1OmWXwhH4zpbnvEw-0
