@@ -25,7 +25,7 @@ CodeMate — это инструмент для анализа отдельны�
 2. **Запуск через Docker**
 
    ```bash
-   docker-compose -f docker-compose\backend.yaml -f docker-compose\frondend.yaml --env-file  backend\.env up --build -d
+   docker-compose -f docker-compose/backend.yaml -f docker-compose/frontend.yaml --env-file  backend/.env up --build -d
    ```
    
 &nbsp;
