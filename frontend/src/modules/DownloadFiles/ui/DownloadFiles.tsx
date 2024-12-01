@@ -2,6 +2,7 @@ import { FC } from "react";
 import s from "./DownloadFiles.module.css";
 import fileIcon from "@assets/icons/file.svg";
 import { DownloadButton } from "@/modules/DownloadButton";
+import { Pdf } from "@/shared/ui/Pdf";
 
 export const DownloadFiles: FC = () => {
   const fileArray = [
@@ -21,7 +22,7 @@ export const DownloadFiles: FC = () => {
       <ul className={s.fileList}>
         {fileArray.map((file, index) => (
           <li className={s.fileItem} key={index}>
-            <img className={s.fileIcon} src={fileIcon} alt="Icon" />
+            <Pdf />
             <span className={s.fileName}>{file.name}</span>
           </li>
         ))}

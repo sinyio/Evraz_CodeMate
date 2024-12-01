@@ -13,7 +13,7 @@ export const DownloadButton: FC<IDownloadButton> = ({
     <Button
       type="button"
       text="Скачать файлы"
-      variant="primary-blue"
+      variant="orange"
       size="XL"
       {...props}
       className={className}

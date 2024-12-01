@@ -23,8 +23,8 @@ export const Home: FC = observer(() => {
           {isShowForm && !isPending && (
             <UploadFileForm onFileUpload={handleUploadFile} />
           )}
-          {isSuccess && !isError && <DownloadFiles />}
-          {isError && !isShowForm && <Error />}
+          {isSuccess && !isError && <Error />}
+          {isError && !isShowForm && <DownloadFiles />}
           {isPending && <Loader />}
         </div>
       </div>
