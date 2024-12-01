@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 from ninja import Router
 from ninja.errors import HttpError
 from ninja.security import HttpBearer
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.exceptions import InvalidToken
 from rest_framework_simplejwt.tokens import RefreshToken

@@ -3,9 +3,6 @@
 *.pot
 *.pyc
 __pycache__
-media
-!\project\media\results\.gitkeep
-!\project\media\uploads\.gitkeep
 static
 !project\static\.gitkeep
 pg_data
