@@ -26,8 +26,8 @@ CodeMate — это инструмент для анализа отдельны�
    ```bash
    docker-compose -f docker-compose\backend.yaml -f docker-compose\frondend.yaml --env-file  backend\.env up --build -d
    ```
-
-   доступ к проекту будет по ссылке [http://localhost:8000](http://localhost:8000)
+   &nbsp;
+   Доступ к веб-сервису: [http://77.223.98.30:5173](http://77.223.98.30:5173)
 
 3. **Пользователь для проверки**
    User: rer
