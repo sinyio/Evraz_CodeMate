@@ -6,6 +6,7 @@ export const useUploadFile = () => {
   const { mutateAsync, isError, isSuccess, isPending } = useMutation({
     mutationFn: async ({ file }: { file: File }) => {
       const response = await uploadFileApi.uploadFile(file);
+      console.log(response);
       return response;
     },
     onSettled: () => showFormStore.hideForm(),
@@ -17,7 +18,7 @@ export const useUploadFile = () => {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "processed_file.zip");
+      link.setAttribute("download", "Отчет.pdf");
       document.body.appendChild(link);
       link.click();
       link.parentNode.removeChild(link);
