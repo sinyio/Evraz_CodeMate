@@ -33,11 +33,18 @@ export const UploadFileForm: FC<UploadFileFormProps> = ({ onFileUpload }) => {
 
     for (const file of files) {
       console.log(file.type);
+      const extension = file.name.split(".").pop()?.toLowerCase();
+
       if (
         file.type !== "application/zip" &&
-        file.type !== "application/x-zip-compressed"
+        file.type !== "application/x-zip-compressed" &&
+        file.type !== "application/x-rar-compressed" &&
+        file.type !== "application/x-7z-compressed" &&
+        extension !== "zip" &&
+        extension !== "rar" &&
+        extension !== "7z"
       ) {
-        alert("Вы можете загрузить только .zip архив");
+        alert("Вы можете загрузить только .zip, .rar, .7z архивы");
         setValue("files", null);
         allFilesValid = false;
         break;
