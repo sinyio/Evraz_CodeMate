@@ -1,5 +1,6 @@
+&
 ![CodeMate Logo](https://github.com/user-attachments/assets/538afd93-3de4-443c-ad16-33a1fb6db8a2)
-
+&
 # CodeMate
 
 CodeMate — это инструмент для анализа отдельных файлов и целых проектов на их соответствие правилам написания кода и принятым соглашениям.
