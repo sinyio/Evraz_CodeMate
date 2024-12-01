@@ -5,10 +5,11 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /app
 
-RUN apt update -y && \
-    apt install -y python3-dev gcc musl-dev libpq-dev nmap \
-                   libgdk-pixbuf2.0-0 libffi-dev libcairo2 libpango-1.0-0 \
-                   libpango1.0-dev libpangocairo-1.0-0 unrar-free && \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        p7zip-full python3-dev gcc musl-dev libpq-dev nmap \
+        libgdk-pixbuf2.0-0 libffi-dev libcairo2 libpango-1.0-0 \
+        libpango1.0-dev libpangocairo-1.0-0 && \
     apt autoremove -y && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
