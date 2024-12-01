@@ -15,6 +15,7 @@ export const DownloadButton: FC<IDownloadButton> = ({
       text="Скачать файлы"
       variant="orange"
       size="XL"
+      style={{ width: "350px" }}
       {...props}
       className={className}
     />
