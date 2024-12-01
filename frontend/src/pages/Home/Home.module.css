@@ -18,6 +18,9 @@
 }
 
 .formWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-form-background);
   border-radius: 24px;
   outline: 1px solid var(--color-form-outline);
