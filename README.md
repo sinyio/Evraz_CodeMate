@@ -38,6 +38,11 @@ CodeMate — это инструмент для анализа отдельны�
    Username: rer
    </br>
    Password: 123
+
+&nbsp;
+## Пример отчета
+![image](https://github.com/user-attachments/assets/d385a4a6-5d75-42f2-b7fd-f2fe671aa201)
+
    
 &nbsp;
 ## Документация
