@@ -41,7 +41,7 @@ def upload_file(request, file: NinjaUploadedFile = File(...)):
 
     analyze_project(
         uploaded_file_path=file_path_uploads,
-        project_name=file.name,
+        project_name=file.name.split(".")[0] + ".pdf",
         last_modified=current_time,
         output_pdf_path=file_path_resulte,
     )
