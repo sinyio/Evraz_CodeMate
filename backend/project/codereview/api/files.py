@@ -9,7 +9,7 @@ from ninja import File, Router
 from ninja.files import UploadedFile as NinjaUploadedFile
 
 from codereview.models import UploadedFile
-from codereview.utilitis import analyze_and_generate_report
+from codereview.utilitis import analyze_project
 
 from .auth import BearerAuth
 
@@ -30,7 +30,7 @@ auth = BearerAuth()
 
 
 # Эндпоинт для загрузки файла
-@router.post("/upload", auth=auth)
+@router.post("/upload")
 def upload_file(request, file: NinjaUploadedFile = File(...)):
     # Сохраняем файл в базу данных и на сервер
     UploadedFile.objects.create(file=file)
@@ -39,7 +39,7 @@ def upload_file(request, file: NinjaUploadedFile = File(...)):
     current_time = get_current_time_formatted()
     start_time = time.time()
 
-    analyze_and_generate_report(
+    analyze_project(
         uploaded_file_path=file_path_uploads,
         project_name=file.name,
         last_modified=current_time,
